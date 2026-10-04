@@ -1,0 +1,2 @@
+import { EVENT } from '../data/events'
+export default function Footer() { return (<footer className="bg-maroon-dark text-cream text-center py-8 px-4"><div className="rule mb-5 max-w-xs mx-auto" /><p className="font-display text-xl text-gold">{EVENT.organizerFull}</p><p className="text-sm mt-1">{EVENT.address.join(', ')}</p><p className="text-sm mt-3 opacity-70">© {EVENT.year} • {EVENT.title}</p></footer>) }
