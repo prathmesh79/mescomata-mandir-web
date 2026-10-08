@@ -6,4 +6,47 @@ html{scroll-behavior:smooth}body{font-family:'Mukta',sans-serif;background:#fbf3
 .marquee{display:flex;width:max-content;animation:mq 45s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s ease}.reveal.in{opacity:1;transform:none}
 .hero-in{animation:hi 1.2s ease both}@keyframes hi{from{opacity:0;transform:translateY(10px)}}
-@media(prefers-reduced-motion:reduce){.marquee,.hero-in{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* Super Mobile Animations */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes pulseGlow{0%,100%{text-shadow:0 0 10px rgba(201,150,43,0.5)}50%{text-shadow:0 0 20px rgba(201,150,43,0.9),0 0 30px rgba(201,150,43,0.6)}}
+@keyframes pulseSlow{0%,100%{opacity:0.3}50%{opacity:0.6}}
+@keyframes expand{from{width:0}to{width:100%}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes cardSlide{from{opacity:0;transform:translateY(40px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.animate-fade-in{animation:fadeIn 1s ease 0.2s both}
+.animate-slide-up{animation:slideUp 0.8s ease both}
+.animate-slide-up:nth-child(2){animation-delay:0.15s}
+.animate-slide-up:nth-child(3){animation-delay:0.3s}
+.animate-slide-up:nth-child(4){animation-delay:0.45s}
+.animate-scale-in{animation:scaleIn 1s ease 0.3s both}
+.animate-float{animation:float 4s ease-in-out infinite}
+.animate-pulse-glow{animation:pulseGlow 2s ease-in-out infinite}
+.animate-pulse-slow{animation:pulseSlow 3s ease-in-out infinite}
+.animate-expand{animation:expand 1s ease 0.5s both}
+.btn-bounce{animation:bounce 2s ease-in-out infinite}
+
+/* Event Cards Animation */
+.event-card{opacity:0;transform:translateY(40px) scale(0.95);transition:all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)}
+.event-card.card-visible{opacity:1;transform:translateY(0) scale(1)}
+
+/* Mobile Specific Enhancements */
+@media(max-width:768px){
+  .animate-float{animation:float 3s ease-in-out infinite}
+  .hero-in{animation:hi 0.9s ease both}
+  .event-card{transform:translateY(30px) scale(0.9)}
+  .event-card.card-visible{transform:translateY(0) scale(1);box-shadow:0 10px 30px rgba(201,150,43,0.2)}
+  .btn-bounce:active{transform:scale(0.95)}
+}
+
+/* Smooth hover effects */
+@media(hover:hover){
+  .event-card:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 15px 40px rgba(201,150,43,0.3)}
+}
+
+@media(prefers-reduced-motion:reduce){.marquee,.hero-in,.animate-fade-in,.animate-slide-up,.animate-scale-in,.animate-float,.animate-pulse-glow,.animate-pulse-slow,.animate-expand,.btn-bounce{animation:none}.reveal,.event-card{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
